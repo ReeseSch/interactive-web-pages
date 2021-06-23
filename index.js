@@ -30,16 +30,23 @@ function addMovie(event){
 document.querySelector(`form`).addEventListener(`submit`, addMovie)
 
 function deleteMovie(event) {
+    message.textContent = `${event.target.parentNode.textContent} was lame anyways`
     event.target.parentNode.remove()
 
-    message.textContent = `That movie sucked anyways`
+    revealMessage()
 }
 
 function crossOffMovie(event) {
     event.target.classList.toggle(`checked`)
     if (event.target.classList.contains(`checked`)) {
-        message.textContent = `That Movie was dope`
+        message.textContent = `${event.target.textContent} was dope`
     } else {
-        message.textContent = `Are you really going to watch that again?`
+        message.textContent = `Are you really going to watch ${event.target.textContent} again?`
     }
+    revealMessage()
+}
+
+function revealMessage(){
+    message.classList.remove(`hide`)
+    setTimeout(() => {message.classList.add(`hide`)}, 2000)
 }
