@@ -30,12 +30,8 @@ function addMovie(event){
 document.querySelector(`form`).addEventListener(`submit`, addMovie)
 
 function deleteMovie(event) {
-    if(event.target.parentNode.children[0].textContent = `Lord of the Rings`){
-        message.textContent = `Error. You DO want to watch Lord of the Rings.`
-    } else {
         message.textContent = `${event.target.parentNode.children[0].textContent} was lame anyways`
         event.target.parentNode.remove()
-    }
 
     revealMessage()
 }
